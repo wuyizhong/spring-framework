@@ -24,6 +24,9 @@ import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.lang.Nullable;
 
 /**
+ * Configuration接口将由大多数listable bean工厂实现。
+ * 除了{@link ConfigurableBeanFactory}之外，它还提供功能：分析和修改bean定义以及预实例化单例。
+ *
  * Configuration interface to be implemented by most listable bean factories.
  * In addition to {@link ConfigurableBeanFactory}, it provides facilities to
  * analyze and modify bean definitions, and to pre-instantiate singletons.
