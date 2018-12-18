@@ -513,6 +513,9 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	/**
+	 * 真正创建指定的bean。
+	 * 在这里已经执行预创建的处理，比如检查{@code postProcessBeforeInstantiation}的回调
+	 * 区别 缺省bean实例化、使用工厂方法和自动装配构造函数。
 	 * Actually create the specified bean. Pre-creation processing has already happened
 	 * at this point, e.g. checking {@code postProcessBeforeInstantiation} callbacks.
 	 * <p>Differentiates between default bean instantiation, use of a
