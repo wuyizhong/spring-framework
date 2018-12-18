@@ -131,6 +131,8 @@ public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyC
 	}
 
 	/**
+	 * 判断对于代理来说，给定的通知bean的名称是否合法
+	 * 
 	 * Return whether the Advisor bean with the given name is eligible
 	 * for proxying in the first place.
 	 * @param beanName the name of the Advisor bean
@@ -176,6 +178,8 @@ public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyC
 
 
 	/**
+	 * BeanFactoryAdvisorRetrievalHelper的子类，委托给环绕AbstractAdvisorAutoProxyCreator的工具
+	 * 
 	 * Subclass of BeanFactoryAdvisorRetrievalHelper that delegates to
 	 * surrounding AbstractAdvisorAutoProxyCreator facilities.
 	 */
@@ -185,6 +189,7 @@ public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyC
 			super(beanFactory);
 		}
 
+		// 判断是否是合格的bean
 		@Override
 		protected boolean isEligibleBean(String beanName) {
 			return AbstractAdvisorAutoProxyCreator.this.isEligibleAdvisorBean(beanName);
