@@ -35,8 +35,8 @@ import org.springframework.aop.framework.adapter.GlobalAdvisorAdapterRegistry;
 import org.springframework.lang.Nullable;
 
 /**
- * 一个简单但是明确的办法，能够实现为一个方法提供通知链：传入一个 {@link Advised} 对象
- * 总是重建每个通知链，子类可以提供缓存。
+ * 简单但是明确的，为一个方法提供advice chain的方式：传入一个 {@link Advised} 对象
+ * 总是重建每个advice chain，子类可以提供缓存。
  * 
  * A simple but definitive way of working out an advice chain for a Method,
  * given an {@link Advised} object. Always rebuilds each advice chain;
@@ -54,6 +54,7 @@ public class DefaultAdvisorChainFactory implements AdvisorChainFactory, Serializ
 	public List<Object> getInterceptorsAndDynamicInterceptionAdvice(
 			Advised config, Method method, @Nullable Class<?> targetClass) {
 
+		// 需要保证最终输出的list的顺序
 		// This is somewhat tricky... We have to process introductions first,
 		// but we need to preserve order in the ultimate list.
 		AdvisorAdapterRegistry registry = GlobalAdvisorAdapterRegistry.getInstance();
@@ -81,6 +82,8 @@ public class DefaultAdvisorChainFactory implements AdvisorChainFactory, Serializ
 					if (match) {
 						MethodInterceptor[] interceptors = registry.getInterceptors(advisor);
 						if (mm.isRuntime()) {
+							// 在getInterceptors()方法中创建新的对象实例
+							// 正常情况下我们会缓存创建的chains，所以不会有问题
 							// Creating a new object instance in the getInterceptors() method
 							// isn't a problem as we normally cache created chains.
 							for (MethodInterceptor interceptor : interceptors) {
