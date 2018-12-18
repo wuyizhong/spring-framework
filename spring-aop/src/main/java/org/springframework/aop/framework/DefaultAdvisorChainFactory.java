@@ -35,6 +35,9 @@ import org.springframework.aop.framework.adapter.GlobalAdvisorAdapterRegistry;
 import org.springframework.lang.Nullable;
 
 /**
+ * 一个简单但是明确的办法，能够实现为一个方法提供通知链：传入一个 {@link Advised} 对象
+ * 总是重建每个通知链，子类可以提供缓存。
+ * 
  * A simple but definitive way of working out an advice chain for a Method,
  * given an {@link Advised} object. Always rebuilds each advice chain;
  * caching can be provided by subclasses.
