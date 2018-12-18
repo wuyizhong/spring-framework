@@ -1703,6 +1703,9 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
 
 	/**
+	 * 初始化给定的bean实例，使用工厂回调init方法和bean的后续处理方法。
+	 * 通过{@link #createBean}调用已经定义的beans，通过{@link #initializeBean} 调用已经存在的类实例化
+	 *
 	 * Initialize the given bean instance, applying factory callbacks
 	 * as well as init methods and bean post processors.
 	 * <p>Called from {@link #createBean} for traditionally defined beans,
