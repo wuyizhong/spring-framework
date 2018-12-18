@@ -644,6 +644,7 @@ class CglibAopProxy implements AopProxy, Serializable {
 
 
 	/**
+	 * 通用AOP回调。当目标是动态的或当代理没有被冻结时使用。
 	 * General purpose AOP callback. Used when the target is dynamic or when the
 	 * proxy is not frozen.
 	 */
