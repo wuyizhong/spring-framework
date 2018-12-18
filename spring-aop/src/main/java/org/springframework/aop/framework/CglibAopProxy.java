@@ -57,6 +57,9 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * SpringAOP框架的基于CGLIB的{@link AopProxy}实现。
+ * 此类型的对象应通过由{@link AdvisedSupport}对象配置的代理工厂获取。该类是Spring的AOP框架的内部类，不需要由客户端代码直接使用。
+ * 
  * CGLIB-based {@link AopProxy} implementation for the Spring AOP framework.
  *
  * <p>Objects of this type should be obtained through proxy factories,
