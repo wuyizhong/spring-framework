@@ -20,6 +20,7 @@
 	<xsd:element name="config">
 		<xsd:annotation>
 			<xsd:documentation><![CDATA[
+	一段AOP指定的配置项(包括方面、切入点等)
 	A section (compartmentalization) of AOP-specific configuration (including
 	aspects, pointcuts, etc).
 			]]></xsd:documentation>
@@ -29,6 +30,7 @@
 				<xsd:element name="pointcut" type="pointcutType" minOccurs="0" maxOccurs="unbounded">
 					<xsd:annotation>
 						<xsd:documentation><![CDATA[
+	切入点的定义
 	A named pointcut definition.
 						]]></xsd:documentation>
 					</xsd:annotation>
@@ -36,6 +38,7 @@
 				<xsd:element name="advisor" type="advisorType" minOccurs="0" maxOccurs="unbounded">
 					<xsd:annotation>
 						<xsd:documentation source="java:org.springframework.aop.Advisor"><![CDATA[
+	通知的定义
 	A named advisor definition.
 						]]></xsd:documentation>
 					</xsd:annotation>
@@ -43,6 +46,7 @@
 				<xsd:element name="aspect" type="aspectType" minOccurs="0" maxOccurs="unbounded">
 					<xsd:annotation>
 						<xsd:documentation><![CDATA[
+	切面的定义
 	A named aspect definition.
 						]]></xsd:documentation>
 					</xsd:annotation>
@@ -51,6 +55,7 @@
 			<xsd:attribute name="proxy-target-class" type="xsd:boolean" default="false">
 				<xsd:annotation>
 					<xsd:documentation><![CDATA[
+	1是要创建基于class（CGLIB）的代理吗？默认情况下，将创建标准java基于接口的代理。
 	Are class-based (CGLIB) proxies to be created? By default, standard
 	Java interface-based proxies are created.
 					]]></xsd:documentation>
@@ -59,6 +64,7 @@
 			<xsd:attribute name="expose-proxy" type="xsd:boolean" default="false">
 				<xsd:annotation>
 					<xsd:documentation><![CDATA[
+	1代理在AOP框架中应该公开为ThreadLocal，以便通过AopContext类进行检索（回收）。默认情况下禁用，即不能保证AopContext访问将起作用。
 	Indicate that the proxy should be exposed by the AOP framework as a
 	ThreadLocal for retrieval via the AopContext class. Off by default,
 	i.e. no guarantees that AopContext access will work.
